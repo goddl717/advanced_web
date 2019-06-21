@@ -2,13 +2,37 @@
 
 <html>
 <head>
+  <script>
+  //함수 구현.
+  //rest api 가져오기.
+function UserAction(){
+  var xhr = new XMLHttpRequest();
+ xhr.onreadystatechange = function() {
+     if (xhr.readyState === xhr.DONE) {
+         if (xhr.status === 200 || xhr.status === 201) {
+             console.log(xhr.responseText);
+         } else {
+             console.error(xhr.responseText);
+         }
+     }
+ };
+ xhr.open('GET', 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=74dd5e6d2d8cd9e175cc23271d938f38&targetDt=20190620');
+ xhr.send();
+}
+
+  </script>
   <title>고급웹 프로젝트</title>
 </head>
 
 <body>
-바디
+<button type="submit" onclick="UserAction()">Search</button>
 <script>
-  //자바스크립트 위치
+  //자바 스크립트
+
+
+
 </script>
 
-</body></html>
+</body>
+
+</html>
